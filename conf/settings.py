@@ -6,7 +6,7 @@ SMTP_PORT = 25
 WEB_PORT = 8181
 DROP_TO_USER = 'rippay'
 
-DELETE_DB_ON_EXIT = True
+DELETE_DB_ON_EXIT = False
 
 DB_NAME = '/tmp/tms-mail.db'
 

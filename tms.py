@@ -2,12 +2,12 @@ import time
 from conf import settings
 from http.server import TMSWebServer
 from smtp.server import TMSEmailServer
-from db.query import check_table_exists, delete_db
+from db.query import init_db, delete_db
 import os
 import pwd
 
 if __name__ == "__main__":
-    check_table_exists()
+    init_db()
 
     mailServer = TMSEmailServer((settings.LISTEN_IP, settings.SMTP_PORT))
     mailServer.start()
