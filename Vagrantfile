@@ -101,9 +101,6 @@ Vagrant.configure("2") do |config|
               machine['provision']['facter'].each do |var_name, var|
                 vars << [var_name, var]
               end
-              CONF['iplist'].each do |var_name, var|
-                vars << ['ip_'+var_name,var]
-              end
               puppet.facter = vars
             end
           end
