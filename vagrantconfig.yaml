@@ -1,0 +1,40 @@
+# Default config for Vagrant.
+
+# Don't change this; use vagrantconfig_local.yaml to override these
+# settings instead.
+
+# Default box information.
+default_box: ubuntu13
+default_box_url: http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-1310-x64-virtualbox-puppet.box
+
+# Turns on Vagrant debug flags, useful if you have issues with puppet.
+debug: false
+
+# False to enable headless mode.
+gui: false
+
+# Use NFS to increase performance, if available.
+nfs: false
+
+machines:
+
+    tms:
+        box: tms
+        box_url: http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-1310-x64-virtualbox-puppet.box
+        synced_folder_local: src
+        synced_folder_vm: /data
+        network:
+            type: private_network
+            ip: 10.0.0.140
+        provision:
+            provider: puppet
+            manifests_path: provision/manifests
+            module_path: provision/modules
+            manifest_file: site.pp
+            facter:
+                sony_environment: vagrant
+                sony_load_db: false
+                db_user: vagrant
+                db_pass: vagrant
+                db_schema: search_admin
+                project_path: /vagrant/src

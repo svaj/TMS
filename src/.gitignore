@@ -39,7 +39,6 @@ coverage.xml
 .project
 .pydevproject
 .idea
-src
 
 # Django stuff:
 *.log
